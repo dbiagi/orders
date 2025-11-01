@@ -17,7 +17,7 @@ public class Order {
     private UUID id;
 
     @OneToMany
-    private List<Item> items;
+    private List<Item> items = List.of();
 
     private BigDecimal total;
 

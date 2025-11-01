@@ -27,7 +27,7 @@ public class OrderCreateService {
 
     @Transactional
     public OrderResponse create(OrderRequest request) {
-        List<Item> items = request.items.stream().map(itemCreateService::create).toList();
+        List<Item> items = request.items().stream().map(itemCreateService::create).toList();
 
         BigDecimal total = BigDecimal.ZERO;
         for (Item item : items) {
@@ -36,7 +36,7 @@ public class OrderCreateService {
 
         Order order = new Order();
         order.setItems(items);
-        order.setDescription(request.description);
+        order.setDescription(request.description());
         order.setDate(ZonedDateTime.now());
         order.setTotal(total);
 

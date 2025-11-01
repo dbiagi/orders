@@ -22,14 +22,14 @@ public class ItemCreateService {
 
     @Transactional
     public Item create(ItemRequest itemRequest) {
-        Optional<Product> product = this.productRepository.findById(itemRequest.product.id);
+        Optional<Product> product = this.productRepository.findById(itemRequest.product().id());
         if (product.isEmpty()) {
             throw new IllegalArgumentException("Product not found");
         }
 
         var item = new Item();
         item.setProduct(product.get());
-        item.setNrUnits(itemRequest.nrUnits);
+        item.setNrUnits(itemRequest.nrUnits());
         item.setUnitPrice(product.get().getPrice());
 
         return itemRepository.save(item);

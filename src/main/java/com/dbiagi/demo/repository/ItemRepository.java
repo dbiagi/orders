@@ -8,4 +8,6 @@ import java.util.UUID;
 
 @Repository
 public interface ItemRepository extends CrudRepository<Item, UUID> {
+    @Override
+    void delete(Item entity);
 }

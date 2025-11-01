@@ -4,7 +4,5 @@ import com.dbiagi.demo.entity.Product;
 
 import java.math.BigDecimal;
 
-public class ItemRequest {
-    public ProductRequest product;
-    public BigDecimal nrUnits;
+public record ItemRequest(ProductRequest product, BigDecimal nrUnits) {
 }

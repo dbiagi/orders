@@ -2,6 +2,7 @@ package com.dbiagi.demo.controller;
 
 import com.dbiagi.demo.domain.OrderRequest;
 import com.dbiagi.demo.domain.OrderResponse;
+import com.dbiagi.demo.domain.OrderUpdateRequest;
 import com.dbiagi.demo.service.OrderCreateService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,5 +25,9 @@ public class OrderController {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void updateOrder(@RequestBody OrderUpdateRequest request) {
+
     }
 }
